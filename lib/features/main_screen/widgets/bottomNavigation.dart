@@ -10,6 +10,10 @@ class CustomBottomNavigation extends StatelessWidget {
     return BottomNavigationBar(
       elevation: 4,
       iconSize: 25,
+      unselectedLabelStyle: const TextStyle(
+        fontSize: 16,
+        fontWeight: FontWeight.bold,
+      ),
       selectedLabelStyle: const TextStyle(
         fontSize: 17,
         fontWeight: FontWeight.bold,

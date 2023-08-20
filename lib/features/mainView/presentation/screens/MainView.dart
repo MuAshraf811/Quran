@@ -11,44 +11,77 @@ class MainView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Stack(
+    return Column(
       children: [
-        Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(),
-        ),
-        GridView.builder(
-          itemCount: gridInformation.length,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2,
-            crossAxisSpacing: 3,
-            mainAxisSpacing: 3,
-          ),
-          itemBuilder: (context, index) {
-            return InkWell(
-              onTap: () {
-                if (index == 0) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const AllSaurahs(),
-                  ));
-                } else if (index == 3) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) => const Masbha(),
-                  ));
-                }else if (index == 2) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                    builder: (context) =>  MainAzkarView(),
-                  ));
-                }
-              },
-              child: CustomGridElemnt(
-                indx: index,
+        ClipPath(
+          clipper: UpperColumnClipper(),
+          child: Container(
+            padding: const EdgeInsets.only(bottom: 32),
+            height: 160,
+            width: double.infinity,
+            color: appColor,
+            child: const Center(
+              child: Text(
+                'بّسًم ٱللۂ ٱلرحًمنٌ ٱلرحًيّم.',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 32,
+                ),
               ),
-            );
-          },
+            ),
+          ),
+        ),
+        Expanded(
+          child: GridView.builder(
+            itemCount: gridInformation.length,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+              crossAxisCount: 2,
+              crossAxisSpacing: 3,
+              mainAxisSpacing: 3,
+            ),
+            itemBuilder: (context, index) {
+              return InkWell(
+                onTap: () {
+                  if (index == 0) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const AllSaurahs(),
+                    ));
+                  } else if (index == 3) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const Masbha(),
+                    ));
+                  } else if (index == 2) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => MainAzkarView(),
+                    ));
+                  }
+                },
+                child: CustomGridElemnt(
+                  indx: index,
+                ),
+              );
+            },
+          ),
         ),
       ],
     );
   }
+}
+
+class UpperColumnClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final height = size.height;
+    final width = size.width;
+    final myPath = Path();
+    myPath.lineTo(0, 0);
+    myPath.lineTo(0, height / 2);
+    myPath.quadraticBezierTo(width / 2, height, width, height / 2);
+    myPath.lineTo(width, 0);
+    myPath.close();
+    return myPath;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

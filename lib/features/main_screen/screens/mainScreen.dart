@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/core/constants.dart';
 import 'package:quran/features/main_screen/cubit/move_betwwen_screens_in_bottom_bar_cubit.dart';
-
 import 'package:quran/features/main_screen/widgets/bottomNavigation.dart';
 
 class Surahs extends StatelessWidget {
