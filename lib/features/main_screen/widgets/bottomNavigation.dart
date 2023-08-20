@@ -16,15 +16,15 @@ class CustomBottomNavigation extends StatelessWidget {
       items: const [
         BottomNavigationBarItem(
           icon: Icon(Icons.book_rounded),
-          label: 'القران',
+          label: 'الرئيسية',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.ad_units_outlined),
-          label: ' الحديث',
+          icon: Icon(Icons.location_city),
+          label: ' القبلة',
         ),
         BottomNavigationBarItem(
-          icon: Icon(Icons.multitrack_audio_rounded),
-          label: 'الأذان',
+          icon: Icon(Icons.settings),
+          label: 'الإعدادات',
         ),
         // BottomNavigationBarItem(
         //   icon: Icon(Icons.location_searching),
