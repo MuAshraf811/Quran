@@ -25,33 +25,59 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          const Text(
-            'الُِسلُِام عٍلُِيڪم',
-            style: TextStyle(
-              color: appColor,
-              fontSize: 36,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-          const SizedBox(
-            height: 24,
-          ),
-          Container(
-            height: 210,
-            width: 210,
-            decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/1.png'),
-                fit: BoxFit.fill,
+        body: Column(
+      children: [
+        ClipPath(
+          clipper: MyClipper(),
+          child: Container(
+            height: 400,
+            width: double.infinity,
+            decoration: const BoxDecoration(color: appColor),
+            child: const Center(
+              child: Text(
+                'بّسًم ٱللۂ ٱلرحًمنٌ ٱلرحًيّم.',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 34,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           ),
-        ],
-      ),
+        ),
+        const SizedBox(height: 24),
+        Container(
+          padding: const EdgeInsets.only(top: 50),
+          height: 210,
+          width: 250,
+          decoration: const BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/q/ssss.webp'),
+              fit: BoxFit.cover,
+            ),
+          ),
+        ),
+      ],
     ));
   }
+}
+
+class MyClipper extends CustomClipper<Path> {
+  @override
+  Path getClip(Size size) {
+    final height = size.height;
+    final width = size.width;
+    final myPath = Path();
+    myPath.lineTo(0, 0);
+    myPath.lineTo(0, height);
+    myPath.lineTo(width / 12, height);
+    myPath.quadraticBezierTo(width / 3, height - 150, width / 1.5, height - 20);
+    myPath.quadraticBezierTo(width - 80, height - 80, width, height - 40);
+
+    myPath.lineTo(width, 0);
+    myPath.close();
+    return myPath;
+  }
+
+  @override
+  bool shouldReclip(CustomClipper<Path> oldClipper) => true;
 }

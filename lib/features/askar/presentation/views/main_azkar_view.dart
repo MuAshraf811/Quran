@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:quran/core/constants.dart';
-import 'package:quran/features/askar/presentation/bloc/azkar_bloc.dart';
+
 import 'package:quran/features/askar/presentation/views/zekr_screen.dart';
 import 'package:quran/features/askar/presentation/widgets/custom_azkar_container.dart';
 

@@ -8,6 +8,12 @@ class CustomBottomNavigation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      elevation: 4,
+      iconSize: 25,
+      selectedLabelStyle: const TextStyle(
+        fontSize: 17,
+        fontWeight: FontWeight.bold,
+      ),
       currentIndex: index,
       onTap: (value) {
         BlocProvider.of<MoveBetwwenScreensInBottomBarCubit>(context)
@@ -15,13 +21,10 @@ class CustomBottomNavigation extends StatelessWidget {
       },
       items: const [
         BottomNavigationBarItem(
-          icon: Icon(Icons.book_rounded),
+          icon: Icon(Icons.home),
           label: 'الرئيسية',
         ),
-        BottomNavigationBarItem(
-          icon: Icon(Icons.location_city),
-          label: ' القبلة',
-        ),
+
         BottomNavigationBarItem(
           icon: Icon(Icons.settings),
           label: 'الإعدادات',

@@ -15,23 +15,15 @@ class Surahs extends StatelessWidget {
       listener: (context, sSMoveBetwwenScreensInBottomBarState) {},
       builder: (context, state) {
         return Scaffold(
-          drawer: const Drawer(
-            backgroundColor: appColor,
-            width: 250,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(topRight: Radius.circular(128)),
-            ),
-          ),
+          // drawer: const Drawer(
+          //   backgroundColor: appColor,
+          //   width: 250,
+          //   shape: RoundedRectangleBorder(
+          //     borderRadius: BorderRadius.only(topRight: Radius.circular(128)),
+          //   ),
+          // ),
           appBar: AppBar(
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(
-                  right: 10,
-                ),
-                child: IconButton(
-                    onPressed: () {}, icon: const Icon(Icons.search)),
-              )
-            ],
+            centerTitle: true,
             title: Text(
               screenTitle[
                   BlocProvider.of<MoveBetwwenScreensInBottomBarCubit>(context)
