@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quran/core/constants.dart';
 import 'package:quran/features/Masbha/presentation/views/masbha.dart';
+import 'package:quran/features/adzan/presentation/screen/adzan_screen.dart';
 import 'package:quran/features/askar/presentation/views/main_azkar_view.dart';
 import 'package:quran/features/mainView/presentation/widgets/custom_grid_elemnt.dart';
 
@@ -53,6 +54,11 @@ class MainView extends StatelessWidget {
                   } else if (index == 2) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => MainAzkarView(),
+                    ));
+                  }
+                  else if (index == 4) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                      builder: (context) => const AdzanScreen(),
                     ));
                   }
                 },

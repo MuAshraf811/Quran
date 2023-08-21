@@ -11,7 +11,7 @@ part 'azkar_state.dart';
 
 class AzkarBloc extends Bloc<AzkarEvent, AzkarState> {
   AzkarBloc() : super(AzkarInitial()) {
-    on<FetchingEvent>((event, emit) async {
+    on<FetchingEvent1>((event, emit) async {
       emit(AzkarLoading());
       try {
         final Map<String, dynamic> res1 =
