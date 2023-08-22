@@ -9,6 +9,7 @@ import 'package:quran/features/adzan/presentation/bloc/azan_bloc.dart';
 import 'package:quran/features/askar/presentation/bloc/azkar_bloc.dart';
 import 'package:quran/features/mainView/presentation/screens/MainView.dart';
 import 'package:quran/features/qibla/data/geolocator.dart';
+import 'package:quran/features/qibla/data/remote_getQibla.dart';
 import 'package:quran/features/splash/splash.dart';
 import 'core/constants.dart';
 import 'features/askar/presentation/views/main_azkar_view.dart';
@@ -24,10 +25,11 @@ void main() async {
   GPS.checkServicesLocation();
   Future.delayed(const Duration(seconds: 3), () {
     if (kDebugMode) {
-      print(GPS.myDevPos!.longitude );
-       print(GPS.myDevPos!.latitude );
+      print(GPS.myDevPos!.longitude);
+      print(GPS.myDevPos!.latitude);
     }
   });
+ await RemoteGetQiblaDirection.getQiblaDirection();
 }
 
 class MyApp extends StatelessWidget {
