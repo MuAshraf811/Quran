@@ -10,6 +10,7 @@ import 'package:quran/features/askar/presentation/bloc/azkar_bloc.dart';
 import 'package:quran/features/mainView/presentation/screens/MainView.dart';
 import 'package:quran/features/qibla/data/geolocator.dart';
 import 'package:quran/features/qibla/data/remote_getQibla.dart';
+import 'package:quran/features/qibla/presentation/cubit/qibla_cubit.dart';
 import 'package:quran/features/splash/splash.dart';
 import 'core/constants.dart';
 import 'features/askar/presentation/views/main_azkar_view.dart';
@@ -21,15 +22,7 @@ import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
-  GPS.askPermission();
-  GPS.checkServicesLocation();
-  Future.delayed(const Duration(seconds: 3), () {
-    if (kDebugMode) {
-      print(GPS.myDevPos!.longitude);
-      print(GPS.myDevPos!.latitude);
-    }
-  });
- await RemoteGetQiblaDirection.getQiblaDirection();
+  
 }
 
 class MyApp extends StatelessWidget {
@@ -49,6 +42,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<AzanBloc>(
           create: (context) => AzanBloc()..add(FetchingEvent()),
+        ),
+         BlocProvider<QiblaCubit>(
+          create: (context) => QiblaCubit()..getQiblaDirction(),
         ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(
