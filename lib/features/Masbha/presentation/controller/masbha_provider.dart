@@ -7,4 +7,9 @@ class MasbhaProvider with ChangeNotifier {
     count++;
     notifyListeners();
   }
+
+  void reset() {
+    count = 0;
+    notifyListeners();
+  }
 }

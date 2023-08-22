@@ -41,6 +41,13 @@ class AdzanScreen extends StatelessWidget {
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
                               Text(
+                                '${index + 1}/${DateTime.now().month}/${DateTime.now().year}',
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 22,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                              Text(
                                 'صلاة الفجر ${state.azanTimesModel[0][index].fajr}',
                                 style: const TextStyle(
                                     color: appColor,

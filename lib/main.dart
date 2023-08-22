@@ -2,7 +2,9 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:provider/provider.dart';
 import 'package:quran/core/theme/apptheme.dart';
+import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
 import 'package:quran/features/adzan/presentation/bloc/azan_bloc.dart';
 import 'package:quran/features/askar/presentation/bloc/azkar_bloc.dart';
 import 'package:quran/features/mainView/presentation/screens/MainView.dart';
@@ -37,12 +39,15 @@ class MyApp extends StatelessWidget {
           create: (context) => AzanBloc()..add(FetchingEvent()),
         ),
       ],
-      child: MaterialApp(
-        title: 'Quran app',
-        debugShowCheckedModeBanner: false,
-        theme: appTheme,
-        home:  
-        const  SplashScreen(),
+      child: ChangeNotifierProvider<MasbhaProvider>( 
+        create: (context) => MasbhaProvider(),
+        child: MaterialApp(
+          title: 'Quran app',
+          debugShowCheckedModeBanner: false,
+          theme: appTheme,
+          home:  
+          const  SplashScreen(),
+        ),
       ),
     );
   }

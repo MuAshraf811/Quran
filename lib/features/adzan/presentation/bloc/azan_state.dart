@@ -9,6 +9,7 @@ class AzanLoading extends AzanState {}
 
 class AzanLoaded extends AzanState {
   final List<List<AzanModel>> azanTimesModel;
+  
   AzanLoaded({required this.azanTimesModel});
 
 }

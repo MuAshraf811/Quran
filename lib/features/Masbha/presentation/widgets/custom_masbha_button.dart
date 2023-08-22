@@ -4,18 +4,17 @@ import 'package:quran/core/constants.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
 
 class CustomMasbhaButton extends StatelessWidget {
-  const CustomMasbhaButton({super.key});
-
+  const CustomMasbhaButton({super.key, required this.text , required this.onPressed});
+  final String text;
+  final void Function() onPressed;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
-      onPressed: () {
-        Provider.of<MasbhaProvider>(context, listen: false).countNumber();
-      },
+      onPressed: onPressed,
       style: const ButtonStyle(
         backgroundColor: MaterialStatePropertyAll(appColor),
       ),
-      label: const Text('Count'),
+      label: Text(text),
       icon: const Icon(Icons.fingerprint),
     );
   }

@@ -41,5 +41,6 @@ List<String> gridImages = [
   'assets/q/kaba.jpg',
 ];
 
+//http://api.aladhan.com/v1/qibla/:latitude/:longitude
 
 // http://api.aladhan.com/v1/calendarByCity/2023/8?city=Cairo&country=Egypt&method=2

@@ -16,12 +16,21 @@ class AzanBloc extends Bloc<AzanEvent, AzanState> {
         final Map<String, dynamic> res = await AzanRemote.fetchingData();
         final List<dynamic> listOfTimes = res['data'];
         final List<List<AzanModel>> finalRes = [];
+        final List<String> meladi = [];
+        final List<String> hejri = [];
         finalRes.add(
             listOfTimes.map((e) => AzanModel.fromJson(e['timings'])).toList());
+        print(finalRes[0].length);
+        print('dsdsds');
+
         if (kDebugMode) {
           print(finalRes);
+          print(meladi);
+          print(hejri);
         }
-        emit(AzanLoaded(azanTimesModel: finalRes));
+        emit(AzanLoaded(
+          azanTimesModel: finalRes,
+        ));
       } catch (e) {
         emit(AzanError(error: e.toString()));
       }
