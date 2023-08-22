@@ -27,7 +27,7 @@ class QiblaCubit extends Cubit<QiblaState> {
       // });
       // await RemoteGetQiblaDirection.getQiblaDirection();
       final double dir = await RemoteGetQiblaDirection.getQiblaDirection();
-
+     
       emit(QiblaFetched(dir: dir));
     } catch (e) {
       emit(QiblaError(error: e.toString()));

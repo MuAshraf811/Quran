@@ -20,22 +20,22 @@ class GPS {
     }
     if (permission == LocationPermission.always ||
         permission == LocationPermission.whileInUse) {
-      final Position pos = await getDevLovation();
-      myDevPos = pos;
+       getDevLovation();
+      
     }
     if (kDebugMode) {
       print(permission);
     }
   }
 
-  static Future<Position> getDevLovation() async {
-    final Position postion = await Geolocator.getCurrentPosition(
-        desiredAccuracy: LocationAccuracy.best);
-    return postion;
+  static void getDevLovation() async {
+    Geolocator.getPositionStream(
+      locationSettings: const LocationSettings(accuracy: LocationAccuracy.high),
+    ).listen((event) {
+      myDevPos = event;
+    });
+    // final Position postion = await Geolocator.getCurrentPosition(
+    //     desiredAccuracy: LocationAccuracy.best);
+    // return postion;
   }
-
-
-
-
-  
 }
