@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+
 import 'package:provider/provider.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
-import 'package:quran/features/Masbha/presentation/widgets/custom_masbha_button.dart';
-import 'package:quran/features/Masbha/presentation/widgets/custom_masbha_container.dart';
+
 
 import '../../../../core/constants.dart';
 
