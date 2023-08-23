@@ -3,6 +3,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
+import 'package:quran/core/cache_helper.dart';
 import 'package:quran/core/theme/apptheme.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
 import 'package:quran/features/adzan/presentation/bloc/azan_bloc.dart';
@@ -19,10 +20,10 @@ import 'features/saurah_content/data/ayahs_remote.dart';
 import 'features/saurah_content/models/saurah_content_mode.dart';
 import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
 
-void main() async {
+void main() async{
   WidgetsFlutterBinding.ensureInitialized();
+ await CacheHelper.createInstance();
   runApp(const MyApp());
-  
 }
 
 class MyApp extends StatelessWidget {
@@ -43,14 +44,14 @@ class MyApp extends StatelessWidget {
         BlocProvider<AzanBloc>(
           create: (context) => AzanBloc()..add(FetchingEvent()),
         ),
-         BlocProvider<QiblaCubit>(
+        BlocProvider<QiblaCubit>(
           create: (context) => QiblaCubit()..getQiblaDirction(),
         ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(
         create: (context) => MasbhaProvider(),
         child: MaterialApp(
-          title: 'Quran app',
+          title: 'Quran App',
           debugShowCheckedModeBanner: false,
           theme: appTheme,
           home: const SplashScreen(),
