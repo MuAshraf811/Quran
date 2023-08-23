@@ -12,6 +12,7 @@ import 'package:quran/features/mainView/presentation/screens/MainView.dart';
 import 'package:quran/features/qibla/data/geolocator.dart';
 import 'package:quran/features/qibla/data/remote_getQibla.dart';
 import 'package:quran/features/qibla/presentation/cubit/qibla_cubit.dart';
+import 'package:quran/features/settings/presentation/cubit/theme_cubit.dart';
 import 'package:quran/features/splash/splash.dart';
 import 'core/constants.dart';
 import 'features/askar/presentation/views/main_azkar_view.dart';
@@ -20,7 +21,7 @@ import 'features/saurah_content/data/ayahs_remote.dart';
 import 'features/saurah_content/models/saurah_content_mode.dart';
 import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper.createInstance();
   runApp(const MyApp());
@@ -47,14 +48,21 @@ class MyApp extends StatelessWidget {
         BlocProvider<QiblaCubit>(
           create: (context) => QiblaCubit()..getQiblaDirction(),
         ),
+        BlocProvider<ThemeCubit>(
+          create: (context) => ThemeCubit(),
+        ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(
         create: (context) => MasbhaProvider(),
-        child: MaterialApp(
-          title: 'Quran App',
-          debugShowCheckedModeBanner: false,
-          theme: appTheme,
-          home: const SplashScreen(),
+        child: BlocBuilder<ThemeCubit, ThemeState>(
+          builder: (context, state) {
+            return MaterialApp(
+              title: 'Quran App',
+              debugShowCheckedModeBanner: false,
+              theme: state is DarkTheme? ThemeData.dark() : ThemeData.light(),
+              home: const SplashScreen(),
+            );
+          },
         ),
       ),
     );
