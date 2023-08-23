@@ -1,8 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
-import 'package:quran/features/adzan/presentation/screen/adzan_screen.dart';
-import 'package:quran/features/hadith/presentation/screen/hadith_screen.dart';
+import 'package:quran/features/settings/presentation/view/settings.dart';
 import '../features/mainView/presentation/screens/MainView.dart';
 import '../features/saurah_content/models/saurah_content_mode.dart';
 
@@ -12,8 +11,7 @@ const Color appColor = Color.fromARGB(255, 9, 78, 135);
 
 List<Widget> bottomNavScreens = [
   const MainView(),
-  const HadithScreen(),
-  const AdzanScreen()
+  const SettingsVieew()
 ];
 
 List<String> screenTitle = [

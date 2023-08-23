@@ -14,13 +14,7 @@ class Surahs extends StatelessWidget {
       listener: (context, sSMoveBetwwenScreensInBottomBarState) {},
       builder: (context, state) {
         return Scaffold(
-          // drawer: const Drawer(
-          //   backgroundColor: appColor,
-          //   width: 250,
-          //   shape: RoundedRectangleBorder(
-          //     borderRadius: BorderRadius.only(topRight: Radius.circular(128)),
-          //   ),
-          // ),
+         
           appBar: AppBar(
             centerTitle: true,
             title: Text(
