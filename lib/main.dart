@@ -22,7 +22,7 @@ import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
 
 void main() async{
   WidgetsFlutterBinding.ensureInitialized();
- await CacheHelper.createInstance();
+  CacheHelper.createInstance();
   runApp(const MyApp());
 }
 

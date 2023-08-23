@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:provider/provider.dart';
+import 'package:quran/core/cache_helper.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
-
 
 import '../../../../core/constants.dart';
 
@@ -97,7 +97,7 @@ class Masbha extends StatelessWidget {
                       ),
                       child: Center(
                           child: Text(
-                        Provider.of<MasbhaProvider>(context ).count1.toString(),
+                        Provider.of<MasbhaProvider>(context).count1.toString(),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -113,7 +113,9 @@ class Masbha extends StatelessWidget {
                       ),
                       child: Center(
                           child: Text(
-                        Provider.of<MasbhaProvider>(context).count2.toString(),
+                        Provider.of<MasbhaProvider>(
+                          context,
+                        ).count2.toString(),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -129,7 +131,9 @@ class Masbha extends StatelessWidget {
                       ),
                       child: Center(
                           child: Text(
-                        Provider.of<MasbhaProvider>(context).count3.toString(),
+                        Provider.of<MasbhaProvider>(
+                          context,
+                        ).count3.toString(),
                         style: const TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 18,
@@ -147,8 +151,13 @@ class Masbha extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   InkWell(
-                    onTap: () {
-                      Provider.of<MasbhaProvider>(context , listen: false).countNumber(1);
+                    onTap: () async {
+                      Provider.of<MasbhaProvider>(context, listen: false)
+                          .countNumber(1);
+                      CacheHelper.saveIntValue(
+                          'sebha1',
+                          Provider.of<MasbhaProvider>(context, listen: false)
+                              .count1);
                     },
                     child: Container(
                       width: 100,
@@ -171,7 +180,12 @@ class Masbha extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Provider.of<MasbhaProvider>(context, listen: false).countNumber(2);
+                      Provider.of<MasbhaProvider>(context, listen: false)
+                          .countNumber(2);
+                      CacheHelper.saveIntValue(
+                          'sebha2',
+                          Provider.of<MasbhaProvider>(context, listen: false)
+                              .count2);
                     },
                     child: Container(
                       width: 100,
@@ -194,7 +208,12 @@ class Masbha extends StatelessWidget {
                   ),
                   InkWell(
                     onTap: () {
-                      Provider.of<MasbhaProvider>(context, listen: false).countNumber(3);
+                      Provider.of<MasbhaProvider>(context, listen: false)
+                          .countNumber(3);
+                      CacheHelper.saveIntValue(
+                          'sebha3',
+                          Provider.of<MasbhaProvider>(context, listen: false)
+                              .count3);
                     },
                     child: Container(
                       width: 100,

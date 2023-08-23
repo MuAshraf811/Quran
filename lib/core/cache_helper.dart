@@ -8,22 +8,22 @@ class CacheHelper {
   }
 
  static saveIntValue(String key , int value) async {
-    sharedInstance?.setInt(key, value);
+  await  sharedInstance?.setInt(key, value);
   }
 
 
   static saveBoolValue(String key , int value) async {
-    sharedInstance?.setInt(key, value);
+   await sharedInstance?.setInt(key, value);
   }
 
 
 
 
- static getIntValue(String key , int value) async {
+ static getIntValue(String key )  {
     sharedInstance?.getInt(key);
   }
    
-  static getBoolValue(String key , int value) async {
+  static getBoolValue(String key  )  {
     sharedInstance?.getBool(key);
   }
 }

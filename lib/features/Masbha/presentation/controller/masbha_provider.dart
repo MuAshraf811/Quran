@@ -1,9 +1,10 @@
 import 'package:flutter/foundation.dart';
+import 'package:quran/core/cache_helper.dart';
 
 class MasbhaProvider with ChangeNotifier {
-  int count1 = 0;
-  int count2 = 0;
-  int count3 = 0;
+  int count1 = CacheHelper.getIntValue('sebha1')?? 0;
+  int count2 = CacheHelper.getIntValue('sebha2')?? 0;
+  int count3 = CacheHelper.getIntValue('sebha3')?? 0;
 
   void countNumber(int index) {
     switch (index) {
