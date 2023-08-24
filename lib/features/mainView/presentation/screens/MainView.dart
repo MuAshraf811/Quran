@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/core/constants.dart';
+import 'package:quran/core/routes/router.dart';
 import 'package:quran/features/Masbha/presentation/views/masbha.dart';
 import 'package:quran/features/adzan/presentation/screen/adzan_screen.dart';
 import 'package:quran/features/askar/presentation/views/main_azkar_view.dart';
@@ -322,17 +323,21 @@ class MainView extends StatelessWidget {
               return InkWell(
                 onTap: () {
                   if (index == 0) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const AllSaurahs(),
-                    ));
+                    Navigator.of(context)
+                        .push(CustomRouter(const AllSaurahs()));
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //   builder: (context) => const AllSaurahs(),
+                    // ));
                   } else if (index == 3) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => Masbha(),
                     ));
                   } else if (index == 2) {
-                    Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => MainAzkarView(),
-                    ));
+                    Navigator.of(context)
+                        .push(CustomRouterRotation(MainAzkarView()));
+                    // Navigator.of(context).push(MaterialPageRoute(
+                    //   builder: (context) => MainAzkarView(),
+                    // ));
                   } else if (index == 4) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const AdzanScreen(),
