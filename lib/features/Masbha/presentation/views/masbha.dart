@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
-
 import 'package:provider/provider.dart';
-import 'package:quran/core/cache_helper.dart';
+import 'package:quran/core/constants.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
 
-import '../../../../core/constants.dart';
+import 'package:quran/features/Masbha/presentation/widgets/custom_sebha_widget.dart';
 
 class Masbha extends StatelessWidget {
-  const Masbha({super.key});
+  Masbha({super.key});
+  final List<String> tit = ['سبحان الله', 'الله أكبر ', 'الحمدلله'];
+  final ScrollController controller = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -23,268 +24,51 @@ class Masbha extends StatelessWidget {
         centerTitle: true,
       ),
       body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  Container(
-                    width: 88,
-                    height: 88,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: appColor),
-                    ),
-                    child: const Center(
-                        child: Text(
-                      'سبحان الله',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    )),
-                  ),
-                  Container(
-                    width: 88,
-                    height: 88,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: appColor),
-                    ),
-                    child: const Center(
-                        child: Text(
-                      'الحمدلله',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    )),
-                  ),
-                  Container(
-                    width: 88,
-                    height: 88,
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(24),
-                      border: Border.all(color: appColor),
-                    ),
-                    child: const Center(
-                        child: Text(
-                      ' الله أكبر',
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18,
-                      ),
-                    )),
-                  ),
-                ],
-              ),
-              const SizedBox(
-                height: 24,
-              ),
-              Consumer(
-                builder: (context, value, child) => Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
-                  children: [
-                    Container(
-                      width: 77,
-                      height: 77,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: appColor),
-                      ),
-                      child: Center(
-                          child: Text(
-                        Provider.of<MasbhaProvider>(context).count1.toString(),
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      )),
-                    ),
-                    Container(
-                      width: 77,
-                      height: 77,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: appColor),
-                      ),
-                      child: Center(
-                          child: Text(
-                        Provider.of<MasbhaProvider>(
-                          context,
-                        ).count2.toString(),
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      )),
-                    ),
-                    Container(
-                      width: 77,
-                      height: 77,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(24),
-                        border: Border.all(color: appColor),
-                      ),
-                      child: Center(
-                          child: Text(
-                        Provider.of<MasbhaProvider>(
-                          context,
-                        ).count3.toString(),
-                        style: const TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                      )),
-                    ),
-                  ],
+        padding:
+            const EdgeInsets.only(top: 150, left: 16, right: 12, bottom: 64),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          children: [
+            Expanded(
+              child: ListView.separated(
+                controller: controller,
+                scrollDirection: Axis.horizontal,
+                itemCount: 3,
+                separatorBuilder: (context, index) => const SizedBox(width: 24),
+                itemBuilder: (context, index) => CustomSebhaContainer(
+                  name: tit[index],
+                  number: index + 1,
                 ),
               ),
-              // const CustomContainer(),
-              const SizedBox(
-                height: 28,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                children: [
-                  InkWell(
-                    onTap: () async {
-                      Provider.of<MasbhaProvider>(context, listen: false)
-                          .countNumber(1);
-                      CacheHelper.saveIntValue(
-                          'sebha1',
-                          Provider.of<MasbhaProvider>(context, listen: false)
-                              .count1);
-                    },
-                    child: Container(
-                      width: 100,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32),
-                        border: Border.all(color: appColor, width: 1.5),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'count',
-                          style: TextStyle(
-                            color: appColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Provider.of<MasbhaProvider>(context, listen: false)
-                          .countNumber(2);
-                      CacheHelper.saveIntValue(
-                          'sebha2',
-                          Provider.of<MasbhaProvider>(context, listen: false)
-                              .count2);
-                    },
-                    child: Container(
-                      width: 100,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32),
-                        border: Border.all(color: appColor, width: 1.5),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'count',
-                          style: TextStyle(
-                            color: appColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                  InkWell(
-                    onTap: () {
-                      Provider.of<MasbhaProvider>(context, listen: false)
-                          .countNumber(3);
-                      CacheHelper.saveIntValue(
-                          'sebha3',
-                          Provider.of<MasbhaProvider>(context, listen: false)
-                              .count3);
-                    },
-                    child: Container(
-                      width: 100,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(32),
-                        border: Border.all(color: appColor, width: 1.5),
-                      ),
-                      child: const Center(
-                        child: Text(
-                          'count',
-                          style: TextStyle(
-                            color: appColor,
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 64),
-              InkWell(
+            ),
+            Consumer<MasbhaProvider>(
+              builder: (context, value, child) => GestureDetector(
                 onTap: () {
                   Provider.of<MasbhaProvider>(context, listen: false).reset();
                 },
                 child: Container(
-                  width: 180,
-                  height: 54,
+                  width: 156,
+                  height: 64,
                   decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(32),
-                    border: Border.all(color: appColor, width: 2),
-                  ),
+                      borderRadius: BorderRadius.circular(24),
+                      border: Border.all(
+                        color: appColor,
+                        width: 1.8,
+                      )),
                   child: const Center(
                     child: Text(
                       'Reset all',
                       style: TextStyle(
                         color: appColor,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
-                        fontSize: 20,
                       ),
                     ),
                   ),
                 ),
               ),
-              // ElevatedButton.icon(
-              //   onPressed: () {
-              //     Provider.of<MasbhaProvider>(context, listen: false).reset();
-              //   },
-              //   style: const ButtonStyle(
-              //     backgroundColor: MaterialStatePropertyAll(appColor),
-              //   ),
-              //   label: const Text('reset'),
-              //   icon: const Icon(Icons.fingerprint),
-              // ),
-              // CustomMasbhaButton(
-              //   text: 'count',
-              //   onPressed: () {
-              //     Provider.of<MasbhaProvider>(context, listen: false)
-              //         .countNumber();
-              //   },
-              // ),
-              // CustomMasbhaButton(
-              //   text: 'reset',
-              //   onPressed: () {
-              //     Provider.of<MasbhaProvider>(context, listen: false).reset();
-              //   },
-              // ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

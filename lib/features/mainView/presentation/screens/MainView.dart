@@ -50,19 +50,17 @@ class MainView extends StatelessWidget {
                     ));
                   } else if (index == 3) {
                     Navigator.of(context).push(MaterialPageRoute(
-                      builder: (context) => const Masbha(),
+                      builder: (context) => Masbha(),
                     ));
                   } else if (index == 2) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => MainAzkarView(),
                     ));
-                  }
-                  else if (index == 4) {
+                  } else if (index == 4) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const AdzanScreen(),
                     ));
-                  }
-                   else if (index == 5) {
+                  } else if (index == 5) {
                     Navigator.of(context).push(MaterialPageRoute(
                       builder: (context) => const QiblaView(),
                     ));

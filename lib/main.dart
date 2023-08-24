@@ -20,13 +20,13 @@ import 'features/main_screen/cubit/move_betwwen_screens_in_bottom_bar_cubit.dart
 import 'features/saurah_content/data/ayahs_remote.dart';
 import 'features/saurah_content/models/saurah_content_mode.dart';
 import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
-
-void main() async {
+void main()  {
   WidgetsFlutterBinding.ensureInitialized();
   CacheHelper.createInstance();
   runApp(const MyApp());
-}
 
+
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
@@ -49,7 +49,7 @@ class MyApp extends StatelessWidget {
           create: (context) => QiblaCubit()..getQiblaDirction(),
         ),
         BlocProvider<ThemeCubit>(
-          create: (context) => ThemeCubit(),
+          create: (context) => ThemeCubit()..controllingTheme(),
         ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(
@@ -57,11 +57,11 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<ThemeCubit, ThemeState>(
           builder: (context, state) {
             return MaterialApp(
-              title: 'Quran App',
-              debugShowCheckedModeBanner: false,
-              theme: state is DarkTheme? ThemeData.dark() : ThemeData.light(),
-              home: const SplashScreen(),
-            );
+             title: 'Quran App',
+             debugShowCheckedModeBanner: false,
+             theme:state is LightTheme? appTheme : ThemeData.dark(),
+             home: const SplashScreen(),
+              );
           },
         ),
       ),
