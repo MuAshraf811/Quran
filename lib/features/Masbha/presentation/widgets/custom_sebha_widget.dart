@@ -1,3 +1,5 @@
+// ignore_for_file: unnecessary_brace_in_string_interps
+
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/core/constants.dart';
@@ -12,10 +14,29 @@ class CustomSebhaContainer extends StatelessWidget {
   final int number;
   @override
   Widget build(BuildContext context) {
-    final List tex = [
+    final List<String> tex = [
       Provider.of<MasbhaProvider>(context).count1.toString(),
       Provider.of<MasbhaProvider>(context).count2.toString(),
-      Provider.of<MasbhaProvider>(context).count3.toString()
+      Provider.of<MasbhaProvider>(context).count3.toString(),
+      Provider.of<MasbhaProvider>(context).count4.toString(),
+      Provider.of<MasbhaProvider>(context).count5.toString(),
+      Provider.of<MasbhaProvider>(context).count6.toString()
+    ];
+    final List<int> num = [
+      Provider.of<MasbhaProvider>(context).count1,
+      Provider.of<MasbhaProvider>(context).count2,
+      Provider.of<MasbhaProvider>(context).count3,
+      Provider.of<MasbhaProvider>(context).count4,
+      Provider.of<MasbhaProvider>(context).count5,
+      Provider.of<MasbhaProvider>(context).count6
+    ];
+    final List<String> text = [
+      'sebha1',
+      'sebha2',
+      'sebha3',
+      'sebha4',
+      'sebha5',
+      'sebha6'
     ];
     return Stack(
       //alignment: Alignment.topCenter,
@@ -31,10 +52,10 @@ class CustomSebhaContainer extends StatelessWidget {
               )),
         ),
         Positioned(
-          left: 62,
+          left: 46,
           child: Container(
             height: 48,
-            width: 128,
+            width: 164,
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(16),
                 border: Border.all(
@@ -43,7 +64,7 @@ class CustomSebhaContainer extends StatelessWidget {
                 )),
             child: Center(
               child: Text(
-                name,
+                ' ${name}  ',
                 style: const TextStyle(
                   color: appColor,
                   fontSize: 24,
@@ -71,7 +92,7 @@ class CustomSebhaContainer extends StatelessWidget {
                       )),
                   child: Center(
                       child: Text(
-                        tex[number-1],
+                    tex[number - 1],
                     // number == 1
                     //     ? Provider.of<MasbhaProvider>(context).count1.toString()
                     //     : Provider.of<MasbhaProvider>(context)
@@ -91,10 +112,7 @@ class CustomSebhaContainer extends StatelessWidget {
                 onTap: () {
                   Provider.of<MasbhaProvider>(context, listen: false)
                       .countNumber(number);
-                  CacheHelper.saveIntValue(
-                      'sebha1',
-                      Provider.of<MasbhaProvider>(context, listen: false)
-                          .count1);
+                  CacheHelper.saveIntValue(text[number - 1], num[number - 1]);
                 },
                 child: Container(
                   width: 100,

@@ -7,7 +7,7 @@ import 'package:quran/features/Masbha/presentation/widgets/custom_sebha_widget.d
 
 class Masbha extends StatelessWidget {
   Masbha({super.key});
-  final List<String> tit = ['سبحان الله', 'الله أكبر ', 'الحمدلله'];
+  final List<String> tit = ['سبحان الله', 'الله أكبر ', 'الحمدلله' , 'الصلاة علي النبي' ,'لا إله إلا الله'  , 'الحوقلة'];
   final ScrollController controller = ScrollController();
 
   @override
@@ -33,7 +33,7 @@ class Masbha extends StatelessWidget {
               child: ListView.separated(
                 controller: controller,
                 scrollDirection: Axis.horizontal,
-                itemCount: 3,
+                itemCount: 6,
                 separatorBuilder: (context, index) => const SizedBox(width: 24),
                 itemBuilder: (context, index) => CustomSebhaContainer(
                   name: tit[index],
