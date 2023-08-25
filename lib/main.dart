@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/provider.dart';
 import 'package:quran/core/cache_helper.dart';
+import 'package:quran/core/connectivity/bloc/check_connectivity_bloc.dart';
 import 'package:quran/core/theme/apptheme.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
 import 'package:quran/features/adzan/presentation/bloc/azan_bloc.dart';
@@ -51,6 +52,9 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<ThemeCubit>(
           create: (context) => ThemeCubit()..controllingTheme(),
+        ),
+        BlocProvider<CheckConnectivityBloc>(
+          create: (context) => CheckConnectivityBloc(),
         ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(

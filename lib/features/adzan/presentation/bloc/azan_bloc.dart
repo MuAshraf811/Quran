@@ -20,8 +20,12 @@ class AzanBloc extends Bloc<AzanEvent, AzanState> {
         final List<String> hejri = [];
         finalRes.add(
             listOfTimes.map((e) => AzanModel.fromJson(e['timings'])).toList());
-        print(finalRes[0].length);
-        print('dsdsds');
+        if (kDebugMode) {
+          print(finalRes[0].length);
+        }
+        if (kDebugMode) {
+          print('dsdsds');
+        }
 
         if (kDebugMode) {
           print(finalRes);

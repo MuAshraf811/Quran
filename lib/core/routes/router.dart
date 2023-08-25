@@ -27,7 +27,7 @@ class CustomRouterRotation extends PageRouteBuilder {
           transitionsBuilder: (contex, a1, a2, child) {
             const begin = 0.0;
             const end = 1.0;
-            var curve = Curves.ease;
+            var curve = Curves.easeInOutCubic;
             var curveTween = CurveTween(curve: curve);
             final tween = Tween(begin: begin, end: end).chain(curveTween);
             final offsetAnimation = a1.drive(tween);
