@@ -57,21 +57,20 @@ class MainView extends StatelessWidget {
                 return InkWell(
                   onTap: () {
                     if (index == 0) {
-                     customNavigationMethodWithCustomNavigator(
-                          context,const AllSaurahs());
-                    } else if (index == 1) {
-                     customNavigationMethodWithCustomNavigator(
-                          context, Masbha());
+                      customNavigationMethodWithCustomNavigator(
+                          context, const AllSaurahs());
                     } else if (index == 2) {
                       customNavigationMethodWithCustomNavigator(
                           context, MainAzkarView());
+                    } else if (index == 3) {
+                      customNavigationMethodWithCustomNavigator(
+                          context, Masbha());
                     } else if (index == 4) {
-                     customNavigationMethodWithCustomNavigator(
-                          context,const AdzanScreen());
+                      customNavigationMethodWithCustomNavigator(
+                          context, const AdzanScreen());
                     } else if (index == 5) {
                       customNavigationMethodWithCustomNavigator(
-                          context,const QiblaView());
-                      
+                          context, const QiblaView());
                     }
                   },
                   child: CustomGridElemnt(
