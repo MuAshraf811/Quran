@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:quran/core/cache_helper.dart';
 import 'package:quran/core/constants.dart';
 import 'package:quran/features/main_screen/screens/mainScreen.dart';
+import 'package:quran/features/onboarding/presentation/views/on_boarding.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -13,7 +15,11 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-      Navigator.of(context).pushReplacement(
+     CacheHelper.getBoolValue('boarding')==false? Navigator.of(context).pushReplacement(
+        MaterialPageRoute(
+          builder: (context) => const OnBoardingView(),
+        ),
+      ): Navigator.of(context).pushReplacement(
         MaterialPageRoute(
           builder: (context) => const Surahs(),
         ),

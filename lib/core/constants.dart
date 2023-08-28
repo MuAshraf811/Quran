@@ -9,10 +9,8 @@ const Color appColor = Color.fromARGB(255, 9, 78, 135);
 // Color.fromARGB(255, 2, 71, 127);
 // Color.fromARGB(255, 4, 120, 108);
 
-List<Widget> bottomNavScreens = [
-  const MainView(),
-  const SettingsVieew()
-];
+List<Widget> bottomNavScreens = [const MainView(), const SettingsVieew()];
+bool isBoardingSeen = false;
 
 List<String> screenTitle = [
   'Muslim',
