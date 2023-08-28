@@ -29,7 +29,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.createInstance();
   if (CacheHelper.getBoolValue('boarding') == null) {
-    CacheHelper.saveBoolValue('boarding', false);
+    await CacheHelper.saveBoolValue('boarding', false);
   }
 
   AwesomeNotifications().initialize(

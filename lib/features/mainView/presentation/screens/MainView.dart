@@ -58,7 +58,7 @@ class MainView extends StatelessWidget {
                   onTap: () {
                     if (index == 0) {
                       customNavigationMethodWithCustomNavigator(
-                          context, const AllSaurahs());
+                          context,  AllSaurahs());
                     } else if (index == 2) {
                       customNavigationMethodWithCustomNavigator(
                           context, MainAzkarView());

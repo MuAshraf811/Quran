@@ -6,12 +6,54 @@ import 'package:quran/features/saurah_content/presentation/screens/saurah_conten
 import 'package:quran/features/saurahs_list/presentation/bloc/saurahs_bloc.dart';
 
 class AllSaurahs extends StatelessWidget {
-  const AllSaurahs({super.key});
+   AllSaurahs({super.key});
+  final List<String> searchResults = [];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        toolbarHeight: 64,
+        centerTitle: true,
+        title: TextFormField(
+          onChanged: (value) {
+           
+          },
+          keyboardType: TextInputType.text,
+          mouseCursor: SystemMouseCursors.move,
+          cursorColor: Colors.white,
+          decoration: InputDecoration(
+            contentPadding: const EdgeInsets.only(
+              left: 100,
+              right: 18,
+            ),
+            labelText: '...... البحث عن سورة',
+            labelStyle: const TextStyle(
+              color: Colors.white,
+            ),
+            suffixIcon: const Icon(
+              Icons.search,
+              color: Colors.white,
+            ),
+            constraints: const BoxConstraints(
+              minHeight: 20,
+              maxHeight: 46,
+              maxWidth: 300,
+            ),
+            enabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(32),
+                borderSide: const BorderSide(
+                    width: 1.4, color: Colors.white, style: BorderStyle.solid)),
+            disabledBorder: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(32),
+                borderSide: const BorderSide(color: Colors.white)),
+            border: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(32),
+              borderSide: const BorderSide(color: Colors.white),
+            ),
+          ),
+        ),
+      ),
       body: BlocProvider<SaurahsBloc>(
         create: (context) => SaurahsBloc()..add(IntialEvent()),
         child: BlocConsumer<SaurahsBloc, SaurahsState>(
