@@ -32,6 +32,9 @@ void main() async {
   if (CacheHelper.getBoolValue('boarding') == null) {
     await CacheHelper.saveBoolValue('boarding', false);
   }
+   if (CacheHelper.getIntValue('appcolor') == null) {
+    await CacheHelper.saveIntValue('appcolor', 0);
+  }
 
   AwesomeNotifications().initialize(
     //'resource://drawable/res_app_icon',
@@ -89,7 +92,7 @@ class MyApp extends StatelessWidget {
           create: (context) => CheckConnectivityBloc(),
         ),
         BlocProvider<AppColorBloc>(
-          create: (context) => AppColorBloc()..add(GreenColorEvent()),
+          create: (context) => AppColorBloc()..add(IntialColorEvent()),
         ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(
@@ -97,6 +100,7 @@ class MyApp extends StatelessWidget {
         child: BlocBuilder<AppColorBloc, AppColorState>(
           builder: (context, state) {
             if(state is GreenColorState){
+              appColor = Colors.green;
                 return BlocBuilder<ThemeCubit, ThemeState>(
               builder: (context, state) {
                 return MaterialApp(
@@ -110,7 +114,8 @@ class MyApp extends StatelessWidget {
               },
             );
             }
-             if(state is PurpleColorState){
+            else if(state is PurpleColorState){
+               appColor = Colors.purple;
                 return BlocBuilder<ThemeCubit, ThemeState>(
               builder: (context, state) {
                 return MaterialApp(
@@ -124,7 +129,8 @@ class MyApp extends StatelessWidget {
               },
             );
             }
-             if(state is BlueColorState){
+            else if(state is BlueColorState){
+                  appColor =const Color.fromARGB(255, 9, 78, 135);
                 return BlocBuilder<ThemeCubit, ThemeState>(
               builder: (context, state) {
                 return MaterialApp(

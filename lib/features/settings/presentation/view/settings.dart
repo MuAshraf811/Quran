@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:quran/core/cache_helper.dart';
 import 'package:quran/core/theme/bloc/app_color_bloc.dart';
 
 import '../widgets/switch.dart';
@@ -41,9 +42,10 @@ class SettingsVieew extends StatelessWidget {
                   width: 48,
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async{
                     BlocProvider.of<AppColorBloc>(context)
                         .add(BlueColorEvent());
+                  await CacheHelper.saveIntValue('appcolor', 0);
                   },
                   child: const CircleAvatar(
                     radius: 15,
@@ -51,9 +53,10 @@ class SettingsVieew extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async{
                     BlocProvider.of<AppColorBloc>(context)
                         .add(GreenColorEvent());
+                        await CacheHelper.saveIntValue('appcolor', 1);
                   },
                   child: const CircleAvatar(
                     radius: 15,
@@ -61,9 +64,10 @@ class SettingsVieew extends StatelessWidget {
                   ),
                 ),
                 InkWell(
-                  onTap: () {
+                  onTap: () async{
                     BlocProvider.of<AppColorBloc>(context)
                         .add(PurpleColorEvent());
+                      await   CacheHelper.saveIntValue('appcolor', 2);
                   },
                   child: const CircleAvatar(
                     radius: 15,

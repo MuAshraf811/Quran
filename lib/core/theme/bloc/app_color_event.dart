@@ -5,3 +5,4 @@ sealed class AppColorEvent {}
 class GreenColorEvent extends AppColorEvent{} 
 class BlueColorEvent extends AppColorEvent{} 
 class PurpleColorEvent extends AppColorEvent{}
+class IntialColorEvent extends AppColorEvent{}
