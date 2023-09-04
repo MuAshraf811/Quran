@@ -14,6 +14,7 @@ class ZekrScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: appColor,
         title: Text(title[indx]),
         centerTitle: true,
       ),
@@ -21,7 +22,7 @@ class ZekrScreen extends StatelessWidget {
         listener: (context, state) {},
         builder: (context, state) {
           if (state is AzkarLoading) {
-            return const Center(
+            return  Center(
               child: CircularProgressIndicator(
                 color: appColor,
               ),

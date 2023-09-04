@@ -10,13 +10,14 @@ class QiblaView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: appColor,
         title: const Text('إتجاه القبلة'),
         centerTitle: true,
       ),
       body: BlocBuilder<QiblaCubit, QiblaState>(
         builder: (context, state) {
           if (state is LoadingQibla) {
-            return const Center(
+            return  Center(
               child: CircularProgressIndicator(
                 color: appColor,
               ),
@@ -32,7 +33,7 @@ class QiblaView extends StatelessWidget {
                     Text(
                       state.dir.toString(),
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
                         color: appColor,
@@ -51,7 +52,7 @@ class QiblaView extends StatelessWidget {
                       child: Center(
                         child: Transform.rotate(
                           angle: -state.dir - 1,
-                          child: const Center(
+                          child:  Center(
                               child: Icon(
                             Icons.arrow_forward,
                             size: 100,

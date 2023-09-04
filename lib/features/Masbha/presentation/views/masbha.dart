@@ -14,6 +14,7 @@ class Masbha extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: appColor,
         title: const Text(
           'فَاذْكُرُونِي أَذْكُرْكُمْ',
           style: TextStyle(
@@ -55,7 +56,7 @@ class Masbha extends StatelessWidget {
                         color: appColor,
                         width: 1.8,
                       )),
-                  child: const Center(
+                  child:  Center(
                     child: Text(
                       'Reset all',
                       style: TextStyle(

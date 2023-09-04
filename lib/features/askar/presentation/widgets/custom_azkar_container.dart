@@ -32,7 +32,7 @@ class CustomAzkarContainer extends StatelessWidget {
           ),
           Text(
             containerText,
-            style: const TextStyle(
+            style:  TextStyle(
                 color: appColor, fontSize: 26, fontWeight: FontWeight.bold),
           ),
         ],

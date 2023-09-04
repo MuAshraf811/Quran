@@ -23,7 +23,7 @@ class CustomRowElemnt extends StatelessWidget {
         children: [
            Text(
             firstText,
-            style:const TextStyle(
+            style: TextStyle(
               color: appColor,
               fontSize: 18,
               fontWeight: FontWeight.bold,

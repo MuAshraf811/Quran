@@ -6,6 +6,7 @@ import 'package:provider/provider.dart';
 import 'package:quran/core/cache_helper.dart';
 import 'package:quran/core/connectivity/bloc/check_connectivity_bloc.dart';
 import 'package:quran/core/theme/apptheme.dart';
+import 'package:quran/core/theme/bloc/app_color_bloc.dart';
 import 'package:quran/features/Masbha/presentation/controller/masbha_provider.dart';
 import 'package:quran/features/adzan/presentation/bloc/azan_bloc.dart';
 import 'package:quran/features/askar/presentation/bloc/azkar_bloc.dart';
@@ -87,18 +88,68 @@ class MyApp extends StatelessWidget {
         BlocProvider<CheckConnectivityBloc>(
           create: (context) => CheckConnectivityBloc(),
         ),
+        BlocProvider<AppColorBloc>(
+          create: (context) => AppColorBloc()..add(GreenColorEvent()),
+        ),
       ],
       child: ChangeNotifierProvider<MasbhaProvider>(
         create: (context) => MasbhaProvider(),
-        child: BlocBuilder<ThemeCubit, ThemeState>(
+        child: BlocBuilder<AppColorBloc, AppColorState>(
           builder: (context, state) {
-            return MaterialApp(
-              title: 'Quran App',
-              debugShowCheckedModeBanner: false,
-              theme: state is LightTheme ? appTheme : ThemeData.dark(),
-              home: const SplashScreen(),
-              // const Test(),
-              // OnBoardingView(),
+            if(state is GreenColorState){
+                return BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return MaterialApp(
+                  title: 'Quran App',
+                  debugShowCheckedModeBanner: false,
+                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                  home: const SplashScreen(),
+                  // const Test(),
+                  // OnBoardingView(),
+                );
+              },
+            );
+            }
+             if(state is PurpleColorState){
+                return BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return MaterialApp(
+                  title: 'Quran App',
+                  debugShowCheckedModeBanner: false,
+                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                  home: const SplashScreen(),
+                  // const Test(),
+                  // OnBoardingView(),
+                );
+              },
+            );
+            }
+             if(state is BlueColorState){
+                return BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return MaterialApp(
+                  title: 'Quran App',
+                  debugShowCheckedModeBanner: false,
+                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                  home: const SplashScreen(),
+                  // const Test(),
+                  // OnBoardingView(),
+                );
+              },
+            );
+            }
+            
+           return BlocBuilder<ThemeCubit, ThemeState>(
+              builder: (context, state) {
+                return MaterialApp(
+                  title: 'Quran App',
+                  debugShowCheckedModeBanner: false,
+                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                  home: const SplashScreen(),
+                  // const Test(),
+                  // OnBoardingView(),
+                );
+              },
             );
           },
         ),

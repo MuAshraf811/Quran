@@ -14,8 +14,8 @@ class Surahs extends StatelessWidget {
       listener: (context, sSMoveBetwwenScreensInBottomBarState) {},
       builder: (context, state) {
         return Scaffold(
-         
           appBar: AppBar(
+            backgroundColor: appColor,
             centerTitle: true,
             title: Text(
               screenTitle[

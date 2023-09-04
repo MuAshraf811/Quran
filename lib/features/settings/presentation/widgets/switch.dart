@@ -11,11 +11,10 @@ class CustomSwitch extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<ThemeCubit, ThemeState>(
         builder: (context, state) => SwitchListTile(
-              value: CacheHelper.getBoolValue('theme') ,
+              value: CacheHelper.getBoolValue('theme'),
               onChanged: (value) {
                 CacheHelper.saveBoolValue('theme', value);
                 BlocProvider.of<ThemeCubit>(context).controllingTheme();
-                 
               },
               activeColor: appColor,
               title: const Text(
@@ -23,7 +22,7 @@ class CustomSwitch extends StatelessWidget {
                 style: TextStyle(
                   color: Colors.black,
                   fontWeight: FontWeight.bold,
-                  fontSize: 18,
+                  fontSize: 20,
                 ),
               ),
             ));

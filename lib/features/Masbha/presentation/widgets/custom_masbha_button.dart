@@ -11,7 +11,7 @@ class CustomMasbhaButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton.icon(
       onPressed: onPressed,
-      style: const ButtonStyle(
+      style:  ButtonStyle(
         backgroundColor: MaterialStatePropertyAll(appColor),
       ),
       label: Text(text),

@@ -13,6 +13,7 @@ class AllSaurahs extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: appColor,
         toolbarHeight: 64,
         centerTitle: true,
         title: TextFormField(
@@ -60,7 +61,7 @@ class AllSaurahs extends StatelessWidget {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is FetchingSaurahs) {
-              return const Center(
+              return  Center(
                 child: CircularProgressIndicator(
                   color: appColor,
                 ),
@@ -68,7 +69,7 @@ class AllSaurahs extends StatelessWidget {
             } else if (state is FetchingSaurahsDone) {
               return ListView.separated(
                 itemCount: state.list.length,
-                separatorBuilder: (context, index) => const Divider(
+                separatorBuilder: (context, index) =>  Divider(
                     color: appColor, endIndent: 48, indent: 48, thickness: 1),
                 itemBuilder: (context, index) {
                   return InkWell(
@@ -88,7 +89,7 @@ class AllSaurahs extends StatelessWidget {
                           padding: const EdgeInsets.only(left: 10.0),
                           child: Text(
                             state.list[index].englishNameTranslation,
-                            style: const TextStyle(
+                            style:  TextStyle(
                               color: appColor,
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
@@ -111,7 +112,7 @@ class AllSaurahs extends StatelessWidget {
                             children: [
                               Text(
                                 state.list[index].name,
-                                style: const TextStyle(
+                                style:  TextStyle(
                                   color: appColor,
                                   fontSize: 17,
                                   fontWeight: FontWeight.bold,

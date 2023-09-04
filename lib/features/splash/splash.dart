@@ -38,7 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Container(
             height: 400,
             width: double.infinity,
-            decoration: const BoxDecoration(color: appColor),
+            decoration:  BoxDecoration(color: appColor),
             child: const Center(
               child: Text(
                 'بّسًم ٱللۂ ٱلرحًمنٌ ٱلرحًيّم.',

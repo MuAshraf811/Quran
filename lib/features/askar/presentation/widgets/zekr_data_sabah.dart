@@ -30,13 +30,13 @@ class ZekrSobah extends StatelessWidget {
                     Text(
                       state.azkarSabah[index].zekr,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         color: appColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Divider(
+                     Divider(
                       endIndent: 16,
                       indent: 16,
                       color: appColor,
@@ -51,7 +51,7 @@ class ZekrSobah extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Divider(
+                     Divider(
                       endIndent: 16,
                       indent: 16,
                       color: appColor,
@@ -60,7 +60,7 @@ class ZekrSobah extends StatelessWidget {
                     Text(
                       'التكرار :${state.azkarSabah[index].repeat.toString()}',
                       textAlign: TextAlign.end,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         color: appColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

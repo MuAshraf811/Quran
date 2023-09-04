@@ -65,7 +65,7 @@ class CustomSebhaContainer extends StatelessWidget {
             child: Center(
               child: Text(
                 ' ${name}  ',
-                style: const TextStyle(
+                style:  TextStyle(
                   color: appColor,
                   fontSize: 24,
                   fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class CustomSebhaContainer extends StatelessWidget {
                       color: appColor,
                     ),
                   ),
-                  child: const Center(
+                  child:  Center(
                     child: Text(
                       'Count',
                       style: TextStyle(

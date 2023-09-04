@@ -5,7 +5,7 @@ import 'package:quran/features/settings/presentation/view/settings.dart';
 import '../features/mainView/presentation/screens/MainView.dart';
 import '../features/saurah_content/models/saurah_content_mode.dart';
 
-const Color appColor = Color.fromARGB(255, 9, 78, 135);
+ Color appColor = Color.fromARGB(255, 9, 78, 135);
 // Color.fromARGB(255, 2, 71, 127);
 // Color.fromARGB(255, 4, 120, 108);
 

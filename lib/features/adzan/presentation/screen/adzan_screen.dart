@@ -11,6 +11,7 @@ class AdzanScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: appColor,
           title: const Text('مواقيت الصلاة'),
           centerTitle: true,
         ),
@@ -18,7 +19,7 @@ class AdzanScreen extends StatelessWidget {
           listener: (context, state) {},
           builder: (context, state) {
             if (state is AzanLoading) {
-              return const Center(
+              return  Center(
                 child: CircularProgressIndicator(
                   color: appColor,
                 ),
@@ -49,49 +50,49 @@ class AdzanScreen extends StatelessWidget {
                               ),
                               Text(
                                 'صلاة الفجر ${state.azanTimesModel[0][index].fajr}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 ' الشروق  ${state.azanTimesModel[0][index].sunrise}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'صلاة الظهر ${state.azanTimesModel[0][index].dhuhr}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'صلاة العصر ${state.azanTimesModel[0][index].asr}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'الغروب  ${state.azanTimesModel[0][index].sunset}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'صلاة المغرب ${state.azanTimesModel[0][index].maghrib}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),
                               ),
                               Text(
                                 'صلاة العشاء${state.azanTimesModel[0][index].isha}',
-                                style: const TextStyle(
+                                style:  TextStyle(
                                     color: appColor,
                                     fontSize: 24,
                                     fontWeight: FontWeight.bold),

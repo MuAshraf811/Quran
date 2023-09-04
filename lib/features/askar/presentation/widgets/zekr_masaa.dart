@@ -30,13 +30,13 @@ class ZekrMasa extends StatelessWidget {
                     Text(
                       state.azkarMasaa[index].zekr,
                       textAlign: TextAlign.center,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         color: appColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Divider(
+                     Divider(
                       endIndent: 16,
                       indent: 16,
                       color: appColor,
@@ -51,7 +51,7 @@ class ZekrMasa extends StatelessWidget {
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const Divider(
+                     Divider(
                       endIndent: 16,
                       indent: 16,
                       color: appColor,
@@ -60,7 +60,7 @@ class ZekrMasa extends StatelessWidget {
                     Text(
                       'التكرار :${state.azkarMasaa[index].repeat.toString()}',
                       textAlign: TextAlign.end,
-                      style: const TextStyle(
+                      style:  TextStyle(
                         color: appColor,
                         fontSize: 20,
                         fontWeight: FontWeight.bold,

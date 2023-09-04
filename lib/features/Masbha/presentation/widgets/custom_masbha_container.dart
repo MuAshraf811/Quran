@@ -22,7 +22,7 @@ class CustomContainer extends StatelessWidget {
       child: Center(
         child: Consumer<MasbhaProvider>(
           builder: (context, value, child) {
-            return const Text(
+            return  Text(
           ' value.count.toString()',
             style:  TextStyle(
               color: appColor,

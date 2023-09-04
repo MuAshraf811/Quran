@@ -74,7 +74,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                     children: [
                       Column(
                         children: [
-                          const Text(
+                           Text(
                             ' تطبيق أنا مسلم',
                             style: TextStyle(
                               color: appColor,
@@ -118,7 +118,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       ),
                       Column(
                         children: [
-                          const Text(
+                           Text(
                             ' تطبيق أنا مسلم',
                             style: TextStyle(
                               color: appColor,
@@ -198,7 +198,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                       print(CacheHelper.getBoolValue('boarding'));
                       print('done');
                     },
-                    child: const Text(
+                    child:  Text(
                       'Next',
                       style: TextStyle(
                         color: appColor,
