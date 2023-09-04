@@ -4,6 +4,7 @@ import 'package:quran/core/constants.dart';
 import 'package:quran/features/main_screen/screens/mainScreen.dart';
 import 'package:quran/features/onboarding/presentation/views/on_boarding.dart';
 
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -12,18 +13,25 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
+  List<String> images = [
+    'assets/q/ssss.webp',
+    'assets/colorsInSplash/green.webp',
+    'assets/colorsInSplash/purple.webp'
+  ];
   @override
   void initState() {
     Future.delayed(const Duration(seconds: 3), () {
-     CacheHelper.getBoolValue('boarding')==false? Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const OnBoardingView(),
-        ),
-      ): Navigator.of(context).pushReplacement(
-        MaterialPageRoute(
-          builder: (context) => const Surahs(),
-        ),
-      );
+      CacheHelper.getBoolValue('boarding') == false
+          ? Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const OnBoardingView(),
+              ),
+            )
+          : Navigator.of(context).pushReplacement(
+              MaterialPageRoute(
+                builder: (context) => const Surahs(),
+              ),
+            );
     });
     super.initState();
   }
@@ -38,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
           child: Container(
             height: 400,
             width: double.infinity,
-            decoration:  BoxDecoration(color: appColor),
+            decoration: BoxDecoration(color: appColor),
             child: const Center(
               child: Text(
                 'بّسًم ٱللۂ ٱلرحًمنٌ ٱلرحًيّم.',
@@ -55,9 +63,9 @@ class _SplashScreenState extends State<SplashScreen> {
           padding: const EdgeInsets.only(top: 50),
           height: 210,
           width: 250,
-          decoration: const BoxDecoration(
+          decoration:  BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/q/ssss.webp'),
+              image: AssetImage(images[CacheHelper.getIntValue('appcolor')]),
               fit: BoxFit.cover,
             ),
           ),
