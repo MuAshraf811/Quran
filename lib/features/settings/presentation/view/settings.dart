@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:quran/core/cache_helper.dart';
 import 'package:quran/core/theme/bloc/app_color_bloc.dart';
 import 'package:quran/features/settings/presentation/widgets/custom_circle_avatar.dart';
 
@@ -54,7 +52,7 @@ class SettingsVieew extends StatelessWidget {
                     index: 1),
                 CustomCircleAvatarClickable(
                     contxt: context,
-                    event: BlueColorEvent(),
+                    event: PurpleColorEvent(),
                     color: Colors.purple,
                     index: 2),
               ],

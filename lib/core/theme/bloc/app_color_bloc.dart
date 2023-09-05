@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:quran/core/cache_helper.dart';
-import 'package:quran/core/constants.dart';
+
 
 part 'app_color_event.dart';
 part 'app_color_state.dart';
