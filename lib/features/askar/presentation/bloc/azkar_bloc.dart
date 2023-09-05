@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:hive_flutter/adapters.dart';
 import 'package:meta/meta.dart';
 import 'package:quran/features/askar/data/azkar_masaa.dart';
 import 'package:quran/features/askar/data/azkar_sabah.dart';
@@ -16,20 +17,25 @@ class AzkarBloc extends Bloc<AzkarEvent, AzkarState> {
       try {
         final Map<String, dynamic> res1 =
             await FetchingAzkarSabah.fetchingData();
-            final List<dynamic> p = res1['content'];
-        List<AzkarModel> sabah =
-            p.map((e) => AzkarModel.fromJson(e)).toList();
+        final List<dynamic> p = res1['content'];
+        List<AzkarModel> sabah = p.map((e) => AzkarModel.fromJson(e)).toList();
         final Map<String, dynamic> res2 =
             await FetchingAzkarMasaa.fetchingData();
         final List<dynamic> s = res2['content'];
-        List<AzkarModel> masaa =
-            s.map((e) => AzkarModel.fromJson(e)).toList();
+        List<AzkarModel> masaa = s.map((e) => AzkarModel.fromJson(e)).toList();
         final Map<String, dynamic> res3 =
             await FetchingAzkarSala.fetchingData();
-            final List<dynamic> d = res3['content'];
-        List<AzkarModel> sala =
-            d.map((e) => AzkarModel.fromJson(e)).toList();
+        final List<dynamic> d = res3['content'];
+        List<AzkarModel> sala = d.map((e) => AzkarModel.fromJson(e)).toList();
 
+        if(Hive.box('azkarSobeh').isEmpty ||Hive.box('azkarMesa').isEmpty||Hive.box('azkarSalah').isEmpty ){
+          
+         await Hive.box('azkarSobeh').add(sabah);
+         await Hive.box('azkarMesa').add(masaa);
+         await Hive.box('azkarSalah').add(sala);
+        }
+
+       
         emit(
             AzkarLoaded(azkarSabah: sabah, azkarMasaa: masaa, azkarSala: sala));
       } catch (e) {

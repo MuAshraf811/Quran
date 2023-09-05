@@ -21,19 +21,25 @@ import 'package:quran/features/settings/presentation/cubit/theme_cubit.dart';
 import 'package:quran/features/splash/splash.dart';
 import 'package:quran/test.dart';
 import 'core/constants.dart';
+import 'features/askar/model/azkar_model.dart';
 import 'features/askar/presentation/views/main_azkar_view.dart';
 import 'features/main_screen/cubit/move_betwwen_screens_in_bottom_bar_cubit.dart';
 import 'features/saurah_content/data/ayahs_remote.dart';
 import 'features/saurah_content/models/saurah_content_mode.dart';
 import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
-import 'package:hive/hive.dart';
+import 'package:path_provider/path_provider.dart' as p;
+import 'package:hive_flutter/hive_flutter.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  final String path = Directory.current.path;
-  Hive.init(path);
-
+  final path =await p.getApplicationDocumentsDirectory();
+  await Hive
+    .initFlutter(path.path);
+   Hive.registerAdapter(AzkarModelAdapter());
+  await Hive.openBox('azkarSobeh');
+  await Hive.openBox('azkarMesa');
+  await Hive.openBox('azkarSalah');
   await CacheHelper.createInstance();
   if (CacheHelper.getBoolValue('boarding') == null) {
     await CacheHelper.saveBoolValue('boarding', false);
