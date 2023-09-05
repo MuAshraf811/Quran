@@ -21,7 +21,7 @@ late List<List<Ayahs>> allAyahs;
 
 List<String> gridInformation = [
   'القران الكريم',
-  'السنة النبوية',
+  //'السنة النبوية',
   'الأذكار',
   'السبحة',
   'الاذان',
@@ -30,7 +30,7 @@ List<String> gridInformation = [
 List<String> gridImages = [
   'assets/q/sbha.webp',
   //'assets/q/pngtree-holy-quran-with-blue-navy-background-png-image_3141352.jpg',
-  'assets/q/night.webp',
+ // 'assets/q/night.webp',
   'assets/q/mor.webp',
   'assets/q/sebhaa.webp',
   'assets/q/azkar.webp',

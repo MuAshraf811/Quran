@@ -59,16 +59,16 @@ class MainView extends StatelessWidget {
                     if (index == 0) {
                       customNavigationMethodWithCustomNavigator(
                           context,  AllSaurahs());
-                    } else if (index == 2) {
+                    } else if (index == 1) {
                       customNavigationMethodWithCustomNavigator(
                           context, MainAzkarView());
-                    } else if (index == 3) {
+                    } else if (index == 2) {
                       customNavigationMethodWithCustomNavigator(
                           context, Masbha());
-                    } else if (index == 4) {
+                    } else if (index == 3) {
                       customNavigationMethodWithCustomNavigator(
                           context, const AdzanScreen());
-                    } else if (index == 5) {
+                    } else if (index == 4) {
                       customNavigationMethodWithCustomNavigator(
                           context, const QiblaView());
                     }
