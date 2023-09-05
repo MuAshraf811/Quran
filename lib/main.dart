@@ -1,4 +1,6 @@
 // ignore_for_file: unused_import
+import 'dart:io';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -25,14 +27,18 @@ import 'features/saurah_content/data/ayahs_remote.dart';
 import 'features/saurah_content/models/saurah_content_mode.dart';
 import 'features/saurah_content/presentation/bloc/all_ayahs_bloc.dart';
 import 'package:awesome_notifications/awesome_notifications.dart';
+import 'package:hive/hive.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  final String path = Directory.current.path;
+  Hive.init(path);
+
   await CacheHelper.createInstance();
   if (CacheHelper.getBoolValue('boarding') == null) {
     await CacheHelper.saveBoolValue('boarding', false);
   }
-   if (CacheHelper.getIntValue('appcolor') == null) {
+  if (CacheHelper.getIntValue('appcolor') == null) {
     await CacheHelper.saveIntValue('appcolor', 0);
   }
 
@@ -99,53 +105,50 @@ class MyApp extends StatelessWidget {
         create: (context) => MasbhaProvider(),
         child: BlocBuilder<AppColorBloc, AppColorState>(
           builder: (context, state) {
-            if(state is GreenColorState){
+            if (state is GreenColorState) {
               appColor = Colors.green;
-                return BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, state) {
-                return MaterialApp(
-                  title: 'Quran App',
-                  debugShowCheckedModeBanner: false,
-                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
-                  home: const SplashScreen(),
-                  // const Test(),
-                  // OnBoardingView(),
-                );
-              },
-            );
+              return BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (context, state) {
+                  return MaterialApp(
+                    title: 'Quran App',
+                    debugShowCheckedModeBanner: false,
+                    theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                    home: const SplashScreen(),
+                    // const Test(),
+                    // OnBoardingView(),
+                  );
+                },
+              );
+            } else if (state is PurpleColorState) {
+              appColor = Colors.purple;
+              return BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (context, state) {
+                  return MaterialApp(
+                    title: 'Quran App',
+                    debugShowCheckedModeBanner: false,
+                    theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                    home: const SplashScreen(),
+                    // const Test(),
+                    // OnBoardingView(),
+                  );
+                },
+              );
+            } else if (state is BlueColorState) {
+              appColor = const Color.fromARGB(255, 9, 78, 135);
+              return BlocBuilder<ThemeCubit, ThemeState>(
+                builder: (context, state) {
+                  return MaterialApp(
+                    title: 'Quran App',
+                    debugShowCheckedModeBanner: false,
+                    theme: state is LightTheme ? appTheme : ThemeData.dark(),
+                    home: const SplashScreen(),
+                    // const Test(),
+                    // OnBoardingView(),
+                  );
+                },
+              );
             }
-            else if(state is PurpleColorState){
-               appColor = Colors.purple;
-                return BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, state) {
-                return MaterialApp(
-                  title: 'Quran App',
-                  debugShowCheckedModeBanner: false,
-                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
-                  home: const SplashScreen(),
-                  // const Test(),
-                  // OnBoardingView(),
-                );
-              },
-            );
-            }
-            else if(state is BlueColorState){
-                  appColor =const Color.fromARGB(255, 9, 78, 135);
-                return BlocBuilder<ThemeCubit, ThemeState>(
-              builder: (context, state) {
-                return MaterialApp(
-                  title: 'Quran App',
-                  debugShowCheckedModeBanner: false,
-                  theme: state is LightTheme ? appTheme : ThemeData.dark(),
-                  home: const SplashScreen(),
-                  // const Test(),
-                  // OnBoardingView(),
-                );
-              },
-            );
-            }
-            
-           return BlocBuilder<ThemeCubit, ThemeState>(
+            return BlocBuilder<ThemeCubit, ThemeState>(
               builder: (context, state) {
                 return MaterialApp(
                   title: 'Quran App',

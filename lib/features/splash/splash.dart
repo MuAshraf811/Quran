@@ -13,7 +13,7 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-  List<String> images = [
+ final List<String> images = [
     'assets/q/ssss.webp',
     'assets/colorsInSplash/green.webp',
     'assets/colorsInSplash/purple.webp'
