@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:quran/core/cache_helper.dart';
 import 'package:quran/core/theme/bloc/app_color_bloc.dart';
+import 'package:quran/features/settings/presentation/widgets/custom_circle_avatar.dart';
 
 import '../widgets/switch.dart';
 
@@ -41,39 +42,21 @@ class SettingsVieew extends StatelessWidget {
                 const SizedBox(
                   width: 48,
                 ),
-                InkWell(
-                  onTap: () async{
-                    BlocProvider.of<AppColorBloc>(context)
-                        .add(BlueColorEvent());
-                  await CacheHelper.saveIntValue('appcolor', 0);
-                  },
-                  child: const CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Color.fromARGB(255, 9, 78, 135),
-                  ),
-                ),
-                InkWell(
-                  onTap: () async{
-                    BlocProvider.of<AppColorBloc>(context)
-                        .add(GreenColorEvent());
-                        await CacheHelper.saveIntValue('appcolor', 1);
-                  },
-                  child: const CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Colors.teal,
-                  ),
-                ),
-                InkWell(
-                  onTap: () async{
-                    BlocProvider.of<AppColorBloc>(context)
-                        .add(PurpleColorEvent());
-                      await   CacheHelper.saveIntValue('appcolor', 2);
-                  },
-                  child: const CircleAvatar(
-                    radius: 15,
-                    backgroundColor: Colors.purple,
-                  ),
-                ),
+                CustomCircleAvatarClickable(
+                    contxt: context,
+                    event: BlueColorEvent(),
+                    color: const Color.fromARGB(255, 9, 78, 135),
+                    index: 0),
+                CustomCircleAvatarClickable(
+                    contxt: context,
+                    event: GreenColorEvent(),
+                    color: Colors.teal,
+                    index: 1),
+                CustomCircleAvatarClickable(
+                    contxt: context,
+                    event: BlueColorEvent(),
+                    color: Colors.purple,
+                    index: 2),
               ],
             ),
           ),
