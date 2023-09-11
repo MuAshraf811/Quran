@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:hive/hive.dart';
 import 'package:quran/core/constants.dart';
-import 'package:quran/features/askar/model/azkar_model.dart';
 import 'package:quran/features/askar/presentation/bloc/azkar_bloc.dart';
 import 'package:quran/features/askar/presentation/widgets/zekr_data_sabah.dart';
 import 'package:quran/features/askar/presentation/widgets/zekr_masaa.dart';
